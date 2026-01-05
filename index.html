@@ -1,0 +1,653 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Derin Tüplü Dalış Sitesi</title>
+    <script>
+        function mesaj() {
+            alert("Mesaj İletilmiştir...");
+        }
+    </script>
+      <style >
+      .curved-image{
+        width: 100%;
+        overflow: hidden;
+
+      }
+      .curved-image img{
+        width: 100%;
+        height: auto;
+        display: block;
+       clip-path: ellipse(100% 70% at top center);
+      }
+      .feature-card {
+            border: none;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid #0e7490;
+        }
+      #tus {
+        height: 400px;
+      }
+      .altbolum{
+        background-color: #d2b89c;
+        padding: 100px;
+        text-align: center;
+        border-radius: 14px;
+        width: 100%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        margin-top: 80px;
+      }
+      i{
+        transition: 0.5s ease;
+      }
+      i:hover{
+        transform: translateY(5px);
+        color: #a8eaff;
+      }
+         body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000510; 
+            background-image: radial-gradient(circle at 50% 50%, #001a33 0%, #000510 100%); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 320px;
+            height: 220px;
+            perspective: 1000px;
+            text-decoration: none;
+            display: block; 
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .card-front {
+            background: linear-gradient(135deg, #022a4d, #001529); 
+            color: #e0f7fa; 
+            transition: all 0.3s ease;
+        }
+
+        .card-front h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+        
+        .card-front .sub-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-front i {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: #ffd700; 
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+        }
+        .card:hover .card-front {
+            border-color: #00bcd4;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+        }
+        .card-back {
+            background: linear-gradient(to bottom, #006994, #00334e); 
+            color: white;
+            transform: rotateY(180deg);
+            position: relative;
+        }
+
+        .card-back h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .card-back p {
+            margin-top: 10px;
+            font-size: 1rem;
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        .btn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 2;
+            transition: background 0.3s;
+        }
+        
+        .card:hover .btn-fake {
+            background: rgba(255,255,255,0.3);
+        }
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            box-shadow: inset 0 0 8px rgba(255,255,255,0.3);
+            backdrop-filter: blur(1px);
+        }
+        .bubble:nth-child(1) { width: 15px; height: 15px; left: 15%; animation: rise 3s infinite ease-in; }
+        .bubble:nth-child(2) { width: 30px; height: 30px; left: 25%; animation: rise 5s infinite ease-in 1s; }
+        .bubble:nth-child(3) { width: 10px; height: 10px; left: 45%; animation: rise 2.5s infinite ease-in 2s; }
+        .bubble:nth-child(4) { width: 25px; height: 25px; left: 60%; animation: rise 4s infinite ease-in 0.5s; }
+        .bubble:nth-child(5) { width: 20px; height: 20px; left: 75%; animation: rise 3.5s infinite ease-in 1.5s; }
+        .bubble:nth-child(6) { width: 12px; height: 12px; left: 85%; animation: rise 3s infinite ease-in 0.8s; }
+
+        @keyframes rise {
+            0% {
+                bottom: -30px;
+                transform: translateX(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                bottom: 120%;
+                transform: translateX(0);
+                opacity: 0;
+            }
+        }
+        .menu-btn4 {
+            border: 0; border-color:#0e7490 ;
+            background-color:#0e7490;
+            color: white;
+            margin-top: -8px;
+        }
+        .custom-modal {
+            max-width:800px ;
+            max-height:700px ;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- navbar başlangıç -->
+    <div class="container-fluid" style="background-color:#0e7490 ;">
+   <nav class="navbar navbar-expand-lg navbar-dark transparent">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="images/logo.png" style="height:70px;width: 70px; border-radius: 50%;" >Scuba Coral</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Hakkımızda</a>
+        </li>
+        <li class="nav-link">
+            <button class="menu-btn4 btn"
+                data-bs-toggle="modal"
+                data-bs-target="#registerModal1">
+            <span class="menu-icon4">İletişim</span>
+      </button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ekipmanlar
+          </a>
+          <ul class="dropdown-menu bg-info" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item " href="bc2.html">BC</a></li>
+            <li><hr class="dropdown-divider"><a class="dropdown-item" href="regulator.html">Regülatör</a></li>
+            <li><hr class="dropdown-divider"><a class="dropdown-item" href="tup.html">Dalış Tüpü</a></li>
+            <li><hr class="dropdown-divider"><a class="dropdown-item" href="maske.html">Maske</a></li>
+            <li><hr class="dropdown-divider"><a class="dropdown-item" href="palet.html">Palet</a></li>
+            <li><hr class="dropdown-divider"><a class="dropdown-item" href="kıyafet.html">Dalış Kıayafeti</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- navbar bitiş -->
+
+    
+    <!-- Register Modal -->
+    <div class="row">
+
+<div class="modal fade" id="registerModal1" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered custom-modal">
+    <div class="modal-content rounded-4 shadow-lg" style="color: seashell; background-color:#0e7490 ;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerModalLabel" style="margin-left:auto;">İletişim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="row">
+            <div class="col-7">
+              
+              <form onsubmit="mesaj()">
+  <div class="mb-3">
+    <label for="regEmail2" class="form-label">E-posta</label>
+    <input type="email" class="form-control" id="regEmail2" placeholder="Mail adresinizi girin." required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mesajınız*</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınızı girin." required></textarea>
+  </div>
+  <button type="submit" class="btn  w-50 d-block mx-auto " style="background-color:burlywood;">Gönder</button>
+</form>
+
+            </div>
+            <div class="col-5">
+
+        <div class="card shadow-lg border-0 rounded-4 h-100 overflow-hidden">
+          <div class="card-body p-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3103.765501685008!2d26.933153999999995!3d38.929337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDU1JzQ1LjYiTiAyNsKwNTUnNTkuNCJF!5e0!3m2!1str!2str!4v1767337454227!5m2!1str!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- modal bitiş -->
+
+<!-- carousel başlangıç -->
+<div id="carouselExampleCaptions" class="carousel slide curved-image" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/manzara1.jpg" class="d-block " alt="..." style="width: 1500px; height: 600px;">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Dalış, zaman ve para yatırımı gerektirir ancak ödülleri kelimenin tam anlamıyla hayatınızı değiştirebilir.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/manzara2.jpg" class="d-block " alt="..." style="width: 1500px;height: 600px;">
+      <div class="carousel-caption d-none d-md-block">
+        <p style="color: white;">Tüplü dalış, insan zihnine tamamen üç boyutlu bir dünyada hareket etmenin nasıl bir şey olduğunu gösterir. Kafanız suyun altına girdiğinde toplum düşüncelerinin kaybolduğu ve huzurun başladığı bir dünya.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/manzara3.jpg" class="d-block " alt="..." style="width: 1500px;height: 600px;">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Birkaç yıl içinde, bir tüplü dalgıç olmanız ve yüzlerce metre derinliğe dalmanız gerekebilir. Bu, gezegenimizdeki saf aura ve gücün son sığınağı olacak, okyanusların derinlikleri.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" id="tus" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" id="tus" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- carousel bitiş -->
+<section class="py-5" style="background-color: #fff7ed;">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold text-dark" style="color: #0e7490 !important;">Neler Sunuyoruz?</h2>
+                    <div style="width: 60px; height: 4px; background-color: #fb923c; margin: 15px auto; border-radius: 2px;"></div>
+                </div>
+            </div>        
+                <!-- kart1--> 
+                
+              <div class="container">
+                <div class="row">
+                <div class="col-4">
+               <a href="1.yıldız.html"></a>
+<a href="#link1" class="card border-0">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>1. YILDIZ</h2>
+                    <div class="sub-text">BAŞLANGIÇ SEVİYESİ</div>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="card-back">
+                    <h3>Temel Eğitim</h3>
+                    <p>Dalış dünyasına ilk adım</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yildizbir">
+                        incele
+                    </button>
+                    <div class="bubbles">
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+                </div>
+                <!--kart1 modal-->
+                <div class="modal fade" id="yildizbir" tabindex="-1"aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title w-100 text-center" id="exampleModalLabel">1.Yıldız</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-info">
+<h1>2025-2026 CMAS 3 Yıldız Dalıcı Eğitimi</h1>
+
+    <p>3. Yıldız Dalıcı eğitimi, bir dalgıcın uzmanlık seviyesinden liderlik seviyesine geçtiği evredir. Bu eğitim, dalış operasyonlarını yönetme, grup liderliği yapma ve olası kaza durumlarında profesyonel müdahale yetisi kazandırır.</p>
+
+    <h2>1. İleri Düzey Teorik Eğitim</h2>
+    <p>3. Yıldız adayları, dalışla ilgili tüm konularda eğitmen düzeyine yakın bir bilgi birikimine sahip olmalıdır:</p>
+    <ul>
+        <li><strong>Grup Liderliği ve Organizasyon:</strong> Dalış öncesi brifing verme, teknedeki düzeni sağlama ve grup kontrol teknikleri.</li>
+        <li><strong>İleri Dalış Fiziği ve Fizyolojisi:</strong> Gaz yasalarının derinlemesine analizi, kronik dalış hastalıkları ve ileri seviye dekompresyon teorileri.</li>
+        <li><strong>Dalış Kazaları ve İlkyardım:</strong> Kaza yönetim şemaları, nörolojik muayene simülasyonları ve ileri seviye Oksijen kullanımı.</li>
+        <li><strong>Navigasyon ve Arama-Kurtarma:</strong> Su altında kaybolan bir nesneyi veya dalgıcı bulmak için kullanılan dairesel, paralel veya genişleyen kare arama teknikleri.</li>
+        <li><strong>Kompresör ve Ekipman Bakımı:</strong> Tüp dolum prosedürleri, yüksek basınçlı kompresörlerin çalıştırılması ve ekipman arıza giderme.</li>
+    </ul>
+
+    <h2>2. Pratik Deniz ve Liderlik Eğitimleri</h2>
+    <p>Bu seviyede adaylar sadece teknik becerilerini değil, yönetsel becerilerini de kanıtlamak zorundadır:</p>
+
+    <h3>Grup Liderliği Simülasyonları</h3>
+    <p>Aday, bir grup dalgıcı su altında yönlendirirken oluşabilecek sorunları (maske düşmesi, hava bitmesi, panik) yönetme pratiği yapar. Grubun güvenliğinden ve rotadan tamamen sorumludur.</p>
+
+    <h3>Derin Dalış ve Dekompresyon Planlaması (Maksimum 42 Metre)</h3>
+    <p>Eğitim kapsamında, sportif dalışın en alt sınırı olan 42 metreye dalışlar gerçekleştirilir. Bu dalışlarda azot narkozu yönetimi ve zorunlu dekompresyon duraklarının (eğer gerekirse) planlanması çalışılır.</p>
+
+    <h3>Arama ve Kurtarma Operasyonları</h3>
+    <p>Su altında ağırlık kaldırma torbalarının kullanımı, ağır nesnelerin yüzeye güvenle çıkarılması ve geniş alanlarda sistematik arama yöntemleri uygulanır.</p>
+
+    <h2>3. 2025-2026 Standartları ve Katılım Şartları</h2>
+    <p>3. Yıldız seviyesi ciddi bir tecrübe ve fiziksel yeterlilik gerektirir:</p>
+    <ul>
+        <li><strong>Tecrübe Gereksinimi:</strong> 2. Yıldız brövesi alındıktan sonra en az 50 onaylı dalış yapmış olmak. Toplamda ise en az 70 dalış kaydı aranır.</li>
+        <li><strong>Derinlik Limiti:</strong> Eğitim tamamlandıktan sonra sportif dalış sınırı olan 42 metreye kadar dalış yapma ve grup liderliği yapma yetkisi verilir.</li>
+        <li><strong>Yaş Sınırı:</strong> En az 18 yaşını doldurmuş olmak.</li>
+        <li><strong>Ek Şartlar:</strong> Güncel bir "İlkyardım, CPR ve Oksijen Kullanımı" sertifikasına sahip olmak zorunludur.</li>
+    </ul>
+
+    <h2>4. Kariyer ve Yetkiler</h2>
+    <p>3. Yıldız brövesi alan bir dalıcı; dalış teknelerinde grup liderliği yapabilir, her seviyeden dalıcıya su altında rehberlik edebilir ve eğitmen yardımcılığı görevlerini üstlenebilir. Bu seviye, profesyonel Eğitmenlik (Instructor) öncesindeki son basamaktır.</p>
+      </div>
+    </div>
+  </div>
+</div>
+                <!-- kart2-->
+                <div class="col-4"> 
+ <a href="#link2" class="card border-0">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>2. YILDIZ</h2>
+                    <div class="sub-text">İLERİ SEVİYE</div>
+                    <div>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <h3>Derin Dalış</h3>
+                    <p>Tecrübeni arttır</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yildiziki">
+                        incele
+                    </button>
+                    <div class="bubbles">
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+                </div>
+                <!-- kart2 modal -->
+                <div class="modal fade" id="yildiziki" tabindex="-1"aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title w-100 text-center" id="exampleModalLabel">2.Yıldız</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-info">
+        <h1>2025-2026 CMAS 2 Yıldız Dalıcı Eğitimi</h1>
+
+    <p>2025-2026 dönemi için CMAS 2 Yıldız Dalıcı (Advanced Open Water) eğitimi, bir dalgıcın sadece su altına bakmasını değil, su altında bir lider gibi hareket etmesini sağlayan kapsamlı bir süreçtir. Bu seviye, derin dalış ve navigasyon becerilerinin uzmanlaştığı aşamadır.</p>
+
+    <h2>1. Teorik Eğitim: Bilgi Derinleşiyor</h2>
+    <p>İkinci yıldız eğitimi, sadece nasıl sorusuna değil, neden sorusuna da odaklanır.</p>
+    <ul>
+        <li><strong>Derin Dalış Fiziği ve Fizyolojisi:</strong> Artan basıncın vücut üzerindeki etkileri, Azot Narkozu (derinlik sarhoşluğu) belirtileri ve yönetimi.</li>
+        <li><strong>Dekompresyon Teorisi:</strong> Dalış tablolarının ve dalış bilgisayarlarının çalışma prensipleri. Dekompresyon hastalığı (vurgun) risk yönetimi.</li>
+        <li><strong>Su Altı Navigasyonu:</strong> Pusula kullanımı, doğal kerteriz alma ve su altında kaybolmadan başlangıç noktasına dönebilme teknikleri.</li>
+        <li><strong>Kurtarma ve İlkyardım:</strong> Suda kendini ve başkasını kurtarma, yorgun dalgıcı çekme, sudan çıkarma ve temel Oksijen seti kullanımı.</li>
+        <li><strong>Ekipman Bilgisi:</strong> Derin dalışta ihtiyaç duyulan yedek ekipmanlar (fenerler, şamandıralar, yedek regülatörler).</li>
+    </ul>
+
+    <h2>2. Pratik Deniz Eğitimleri (Uzmanlık Dalışları)</h2>
+    <p>2 yıldız brövesi alabilmek için genellikle en az 5-6 eğitim dalışı yapılır. Bu dalışlar şu temel becerileri kapsar:</p>
+
+    <h3>Derin Dalış Pratiği (Maksimum 30 Metre)</h3>
+    <p>Bu dalış, eğitimin kalbidir. 30 metre derinliğe inilerek basınç altındaki renk kaybı gözlemlenir. Derinlikte basit matematiksel veya mantıksal testler yapılarak Azot Narkozu kontrolü yapılır. Emniyet beklemesi (Safety Stop) prosedürleri mükemmelleştirilir.</p>
+
+    <h3>Su Altı Navigasyonu</h3>
+    <p>Pusula ile su altında kare, üçgen veya düz hat çizerek başlangıç noktasına geri dönme çalışmaları yapılır. Ayrıca akıntı, kum yapısı ve güneş ışığı gibi doğal formasyonlarla yön bulma becerisi geliştirilir.</p>
+
+    <h3>Gece Dalışı ve Kurtarma</h3>
+    <p>Işık disiplini ve fenerle haberleşme teknikleri öğrenilir. Ayrıca su altında bilinci kapalı bir dalgıcı yüzeye çıkarma ve su üstünde panik halindeki dalgıca müdahale teknikleri simüle edilir.</p>
+
+    <h2>3. Eğitim Standartları ve Limitleri</h2>
+    <p>2025-2026 dönemi 2. yıldız dalıcı eğitimi sürecinde adayların uyması gereken teknik limitler şunlardır:</p>
+    <ul>
+        <li><strong>Derinlik Sınırları ve Yetki:</strong> Eğitim süresince ve sonrasında dalıcının inebileceği maksimum derinlik 30 metre olarak belirlenmiştir.</li>
+        <li><strong>Tecrübe Gereksinimleri:</strong> 1. yıldız brövesinden sonra kayıtlı ve onaylı en az 20 dalışın bulunması gerekmektedir.</li>
+        <li><strong>Yaş Sınırı:</strong> Bu eğitime katılmak için alt yaş sınırı 15'tir. 18 yaşından küçükler için veli muvafakati şarttır.</li>
+        <li><strong>Zorunlu Ekipman Kullanımı:</strong> Dalış planlamasını anlık takip etmek amacıyla dalış bilgisayarı kullanımı zorunlu hale getirilmiştir.</li>
+    </ul>
+
+    <h2>4. Yetkiler</h2>
+    <p>Eğitimi başarıyla tamamladığında; açık denizlerde 30 metreye kadar dalış yapabilir, gece dalışı yetkisine sahip olur ve en az 2 yıldız seviyesindeki bir eş ile eğitmen zorunluluğu olmadan dalış gerçekleştirebilirsin.</p>
+    </div>
+    </div>
+  </div>
+</div>
+                <!-- 3.kart-->
+                <div class="col-4">
+  <a href="#link3" class="card border-0">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>3. YILDIZ</h2>
+                    <div class="sub-text">LİDER DALICI</div>
+                    <div>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <h3>Grup Liderliği</h3>
+                    <p>Profesyonelliğe geçiş</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yildizuc">
+                        incele
+                    </button>
+                    <div class="bubbles">
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                        <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+                  </div>
+              </div>
+              <!-- kart3 modal -->
+                <div class="modal fade" id="yildizuc" tabindex="-1"aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title w-100 text-center" id="exampleModalLabel">3.Yıldız</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-info">
+        <h1>2025-2026 CMAS 3 Yıldız Dalıcı Eğitimi</h1>
+
+    <p>3. Yıldız Dalıcı eğitimi, bir dalgıcın uzmanlık seviyesinden liderlik seviyesine geçtiği evredir. Bu eğitim, dalış operasyonlarını yönetme, grup liderliği yapma ve olası kaza durumlarında profesyonel müdahale yetisi kazandırır.</p>
+
+    <h2>1. İleri Düzey Teorik Eğitim</h2>
+    <p>3. Yıldız adayları, dalışla ilgili tüm konularda eğitmen düzeyine yakın bir bilgi birikimine sahip olmalıdır:</p>
+    <ul>
+        <li><strong>Grup Liderliği ve Organizasyon:</strong> Dalış öncesi brifing verme, teknedeki düzeni sağlama ve grup kontrol teknikleri.</li>
+        <li><strong>İleri Dalış Fiziği ve Fizyolojisi:</strong> Gaz yasalarının derinlemesine analizi, kronik dalış hastalıkları ve ileri seviye dekompresyon teorileri.</li>
+        <li><strong>Dalış Kazaları ve İlkyardım:</strong> Kaza yönetim şemaları, nörolojik muayene simülasyonları ve ileri seviye Oksijen kullanımı.</li>
+        <li><strong>Navigasyon ve Arama-Kurtarma:</strong> Su altında kaybolan bir nesneyi veya dalgıcı bulmak için kullanılan dairesel, paralel veya genişleyen kare arama teknikleri.</li>
+        <li><strong>Kompresör ve Ekipman Bakımı:</strong> Tüp dolum prosedürleri, yüksek basınçlı kompresörlerin çalıştırılması ve ekipman arıza giderme.</li>
+    </ul>
+
+    <h2>2. Pratik Deniz ve Liderlik Eğitimleri</h2>
+    <p>Bu seviyede adaylar sadece teknik becerilerini değil, yönetsel becerilerini de kanıtlamak zorundadır:</p>
+
+    <h3>Grup Liderliği Simülasyonları</h3>
+    <p>Aday, bir grup dalgıcı su altında yönlendirirken oluşabilecek sorunları (maske düşmesi, hava bitmesi, panik) yönetme pratiği yapar. Grubun güvenliğinden ve rotadan tamamen sorumludur.</p>
+
+    <h3>Derin Dalış ve Dekompresyon Planlaması (Maksimum 42 Metre)</h3>
+    <p>Eğitim kapsamında, sportif dalışın en alt sınırı olan 42 metreye dalışlar gerçekleştirilir. Bu dalışlarda azot narkozu yönetimi ve zorunlu dekompresyon duraklarının (eğer gerekirse) planlanması çalışılır.</p>
+
+    <h3>Arama ve Kurtarma Operasyonları</h3>
+    <p>Su altında ağırlık kaldırma torbalarının kullanımı, ağır nesnelerin yüzeye güvenle çıkarılması ve geniş alanlarda sistematik arama yöntemleri uygulanır.</p>
+
+    <h2>3. 2025-2026 Standartları ve Katılım Şartları</h2>
+    <p>3. Yıldız seviyesi ciddi bir tecrübe ve fiziksel yeterlilik gerektirir:</p>
+    <ul>
+        <li><strong>Tecrübe Gereksinimi:</strong> 2. Yıldız brövesi alındıktan sonra en az 50 onaylı dalış yapmış olmak. Toplamda ise en az 70 dalış kaydı aranır.</li>
+        <li><strong>Derinlik Limiti:</strong> Eğitim tamamlandıktan sonra sportif dalış sınırı olan 42 metreye kadar dalış yapma ve grup liderliği yapma yetkisi verilir.</li>
+        <li><strong>Yaş Sınırı:</strong> En az 18 yaşını doldurmuş olmak.</li>
+        <li><strong>Ek Şartlar:</strong> Güncel bir "İlkyardım, CPR ve Oksijen Kullanımı" sertifikasına sahip olmak zorunludur.</li>
+    </ul>
+
+    <h2>4. Kariyer ve Yetkiler</h2>
+    <p>3. Yıldız brövesi alan bir dalıcı; dalış teknelerinde grup liderliği yapabilir, her seviyeden dalıcıya su altında rehberlik edebilir ve eğitmen yardımcılığı görevlerini üstlenebilir. Bu seviye, profesyonel Eğitmenlik (Instructor) öncesindeki son basamaktır.</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+                <!-- kart bitiş -->
+                </div>
+    <div class="altbolum"> <a name="footer"></a>
+      <h2>DALIŞ EĞİTİMLERİ HAKKINDA DAHA FAZLASI</h2>
+      <p>
+        Yıldız eğitimlerinden sonra ileri seviye dalış kursları, uzmanlık programları 
+        ve eğitim materyallerine ulaşabilirsiniz.
+      </p>
+      <div style="width: 120px; height: 6px; background-color: #fb923c; margin: 15px auto; border-radius: 3px;"></div>
+      <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-auto">
+            <div class="d-flex align-items-center"> 
+              <a href="https://www.instagram.com/zekisairoglubilisim">
+                 <i class="fa fa-brands fa-square-instagram"  style="font-size: 50px;"></i>
+              </a>   
+            </div>
+        </div>
+        <div class="col-md-6 ms-4">
+          <h2>HAKKIMIZDA</h2>
+          <p>Dalış Merkezimiz, tecrübeli eğitmen Ömer Yiğit Karamercan tarafından 2020 yılında İzmir Dikili Çandarlı’da kurulmuş olup, deneyimli eğitmen kadrosu ile hizmet vermektedir.</p>
+        </div> 
+      </div>   
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+</div>
